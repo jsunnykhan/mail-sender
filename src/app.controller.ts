@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, HttpCode } from '@nestjs/common';
 import { AppService } from './app.service';
 
 @Controller()
@@ -10,7 +10,8 @@ export class AppController {
     return this.appService.getHello();
   }
   @Get('/health')
-  getHealth(): { message: string } {
+  @HttpCode(202)
+  getHealth(): { message: string; status: number } {
     return this.appService.getHeath();
   }
 }

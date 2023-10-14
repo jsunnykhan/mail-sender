@@ -6,7 +6,7 @@ export class AppService {
     return 'Hello World!';
   }
 
-  getHeath(): { message: string } {
-    return { message: 'Health is ok ' };
+  getHeath(): { message: string; status: number } {
+    return { message: 'Health is ok ', status: 202 };
   }
 }
