@@ -9,7 +9,9 @@ export class AppService {
 
   getHeath(): { message: string; status: number } {
     let index = 0;
-    while (index < 1000) {}
+    while (index < 1000) {
+      index++;
+    }
     return { message: 'Health is ok ', status: 202 };
   }
   getJenkins(): any {
