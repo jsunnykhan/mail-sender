@@ -8,9 +8,11 @@ export class AppService {
   }
 
   getHeath(): { message: string; status: number } {
+    let index = 0;
+    while (index < 1000) {}
     return { message: 'Health is ok ', status: 202 };
   }
   getJenkins(): any {
-    return { link:'192.168.0.155:8080', status: 200 };
+    return { link: '192.168.0.155:8080', status: 200 };
   }
 }
