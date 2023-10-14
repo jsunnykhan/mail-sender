@@ -11,6 +11,6 @@ export class AppService {
     return { message: 'Health is ok ', status: 202 };
   }
   getJenkins(): any {
-    return { link: new URL('192.168.0.155:8080'), status: 200 };
+    return { link:'192.168.0.155:8080', status: 200 };
   }
 }

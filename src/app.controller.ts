@@ -14,6 +14,7 @@ export class AppController {
   getHealth(): { message: string; status: number } {
     return this.appService.getHeath();
   }
+  
   @Get('/jenkins')
   getJenkins(): any {
     return this.appService.getJenkins();
