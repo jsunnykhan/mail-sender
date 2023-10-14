@@ -15,8 +15,7 @@ export class AppController {
     return this.appService.getHeath();
   }
   @Get('/jenkins')
-  @HttpCode(202)
-  getJenkins(): { message: string; status: number } {
-    return this.appService.getHeath();
+  getJenkins(): any {
+    return this.appService.getJenkins();
   }
 }
