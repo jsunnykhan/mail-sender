@@ -11,4 +11,11 @@ export class RedisService implements OnModuleDestroy {
   ping() {
     return this.redis.ping();
   }
+
+  async publishNotification(message: Record<string, any>) {
+    await this.redis.XADD('Notification' , '9', message , {NOMKSTREAM:true});
+
+    const info = await this.redis.XINFO_STREAM('Notification');
+    console.log({ info });
+  }
 }

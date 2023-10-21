@@ -39,5 +39,7 @@ export class AppService {
     return { link: '192.168.0.155:8080', status: 200, value: index };
   }
 
-  postNotification({ message }: { message: string }) {}
+  async postNotification(message: Record<string, unknown>) {
+    await this.redisService.publishNotification(message);
+  }
 }
