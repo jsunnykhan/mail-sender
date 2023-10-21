@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Body, Controller, Get, Headers, HttpCode, Post } from '@nestjs/common';
 import { AppService } from './app.service';
 
 @Controller()
@@ -10,7 +10,18 @@ export class AppController {
     return this.appService.getHello();
   }
   @Get('/health')
-  getHealth(): { message: string } {
-    return this.appService.getHeath();
+  @HttpCode(202)
+  async getHealth(): Promise<{ message: string; status: number }> {
+    return await this.appService.getHeath();
+  }
+
+  @Get('/jenkins')
+  getJenkins(@Headers() header: Headers): any {
+    return this.appService.getJenkins();
+  }
+
+  @Post('push-notification')
+  async pushNotification(@Body() message: Record<string, unknown>) {
+    await this.appService.postNotification(message);
   }
 }

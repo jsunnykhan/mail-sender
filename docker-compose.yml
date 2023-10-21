@@ -11,6 +11,12 @@ services:
       - ./pgdata:/var/lib/postgresql/data
     ports:
       - '5432:5432'
+  redis:
+    container_name: redis-test
+    image: redis:7
+    restart: always
+    networks:
+      - ats-network
 
   app:
     build:
@@ -25,3 +31,9 @@ services:
       - db
     volumes:
       - ./src:/app/src
+    networks:
+      - ats-network
+networks:
+  ats-network:
+    name: ats-network
+    driver: bridge
